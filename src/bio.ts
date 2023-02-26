@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { DeveloperProfile } from "./content/developer-profile.js";
-import { printCard } from "./content/bio-printer";
+import { printCard } from "./content/bio-printer.js";
 
 const profile: DeveloperProfile = {
   name: "Antonio Manuel Díaz Moreno",

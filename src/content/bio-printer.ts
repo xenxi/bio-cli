@@ -1,6 +1,6 @@
-import { CardPrinter } from "./card-printer";
-import { DeveloperProfile } from "./developer-profile";
-import { PromptMenuPrinter } from "./prompt-menu-printer";
+import { CardPrinter } from "./card-printer.js";
+import { DeveloperProfile } from "./developer-profile.js";
+import { PromptMenuPrinter } from "./prompt-menu-printer.js";
 
 export function printCard(profile: DeveloperProfile): Promise<void> {
   new CardPrinter(profile).print("👋 Hello world");
