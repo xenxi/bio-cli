@@ -1,0 +1,47 @@
+{
+  "name": "bio-cli",
+  "version": "1.0.11-beta.0",
+  "description": "The bio-cli package is a command line interface tool that displays a brief summary of a developer",
+  "main": "dist/bio.js",
+  "bin": "dist/bio.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/bio.js",
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "dev": "npm run build && npm run start",
+    "dev:watch": "concurrently \"npm run build:watch\" \"npx nodemon --watch dist/bio.js --exec node dist/bio.js\"",
+    "pub": "npm run build & npm publish",
+    "pub:minor": "npm run build && npm version minor & npm publish",
+    "pub:major": "npm run build && npm version major & npm publish",
+    "pub:patch": "npm run build && npm version patch & npm publish",
+    "pub:preminor": "npm run build && npm version preminor --preid=beta & npm publish",
+    "pub:premajor": "npm run build && npm version premajor --preid=beta & npm publish",
+    "pub:prepatch": "npm run build && npm version prepatch --preid=beta & npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenxi/bio-cli.git"
+  },
+  "keywords": [
+    "amdiaz",
+    "resume",
+    "about"
+  ],
+  "author": "amdiaz (https://antoniomdm.dev/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xenxi/bio-cli/issues"
+  },
+  "homepage": "https://github.com/xenxi/bio-cli#readme",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "boxen": "^7.0.1",
+    "inquirer": "^9.1.4",
+    "open": "^8.4.2"
+  }
+}
