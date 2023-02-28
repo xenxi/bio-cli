@@ -3,20 +3,18 @@
   "version": "0.0.1-beta.0",
   "description": "The bio-cli package is a command line interface tool that displays a brief summary of a developer",
   "exports": "./dist/bio-printer.js",
+  "type": "module",
   "scripts": {
-    "start": "node dist/bio-printer.js",
+    "prepublish": "npm run build",
     "build": "tsc",
     "build:watch": "tsc -w",
-    "dev": "npm run build && npm run start",
-    "dev:watch": "concurrently \"npm run build:watch\" \"npx nodemon --watch dist/bio.js --exec node dist/bio.js\"",
     "pub": "npm run build & npm publish",
     "pub:minor": "npm run build && npm version minor & npm publish",
     "pub:major": "npm run build && npm version major & npm publish",
     "pub:patch": "npm run build && npm version patch & npm publish",
     "pub:preminor": "npm run build && npm version preminor --preid=beta & npm publish",
     "pub:premajor": "npm run build && npm version premajor --preid=beta & npm publish",
-    "pub:prepatch": "npm run build && npm version prepatch --preid=beta & npm publish",
-    "test": "jest"
+    "pub:prepatch": "npm run build && npm version prepatch --preid=beta & npm publish"
   },
   "repository": {
     "type": "git",
@@ -36,9 +34,6 @@
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
     "concurrently": "^7.6.0",
-    "@types/jest": "^29.4.0",
-    "jest": "^29.4.3",
-    "ts-jest": "^29.0.5",
     "nodemon": "^2.0.20"
   },
   "dependencies": {

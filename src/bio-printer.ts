@@ -6,4 +6,3 @@ export function print(profile: DeveloperProfile): Promise<void> {
   new CardPrinter(profile).print("👋 Hello world");
   return new PromptMenuPrinter(profile).show();
 }
- 
