@@ -1,11 +1,16 @@
 import inquirer, { Answers, PromptModule, QuestionCollection } from "inquirer";
 import open from "open";
 import { MenuOption } from "./menu-options.js";
+import { ExitOption } from "./menu-options.js";
 
 export class PromptMenuPrinter {
   private readonly prompt: PromptModule;
   constructor(private options: MenuOption[]) {
     this.prompt = inquirer.createPromptModule();
+
+    if (!options.some((o) => o instanceof ExitOption)) {
+      options.push(new ExitOption());
+    }
   }
   public async show(): Promise<void> {
     const questions = this.createQuestions();
@@ -24,7 +29,7 @@ export class PromptMenuPrinter {
         name: "execute",
         message:
           "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ ",
-        commands,
+        choices: commands,
       },
     ];
 
