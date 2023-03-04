@@ -45,3 +45,16 @@ export class ScheduleMeetingOption extends MenuOption {
     return Promise.resolve();
   }
 }
+export class ExitOption extends MenuOption {
+  constructor( args?: MenuOptionArgs) {
+    super({
+      completionText:
+        args?.completionText ??
+        "Looking forward to seeing you again.",
+      label: args?.label ?? "Exit...",
+    });
+  }
+  protected execute(): Promise<void> {
+    return Promise.resolve();
+  }
+}
