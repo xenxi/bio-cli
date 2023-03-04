@@ -1,5 +1,4 @@
-import inquirer, { Answers, PromptModule, QuestionCollection } from "inquirer";
-import open from "open";
+import inquirer, { PromptModule, QuestionCollection } from "inquirer";
 import { MenuOption } from "./menu-options.js";
 import { ExitOption } from "./menu-options.js";
 

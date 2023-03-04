@@ -1,6 +1,6 @@
 import { CardPrinter } from "./content/card-printer.js";
 import { DeveloperProfile } from "./content/developer-profile.js";
-import { MenuOption, SendMainOption } from "./content/menu-options.js";
+import { MenuOption, SendMainOption, ScheduleMeetingOption } from "./content/menu-options.js";
 import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
 export function print(profile: DeveloperProfile, menuOptions: MenuOption[] = []): Promise<void> {
@@ -20,5 +20,6 @@ const profile: DeveloperProfile = {
 };
 
 print(profile, [
-  new SendMainOption( profile.email)
+  new SendMainOption( profile.email),
+  new ScheduleMeetingOption(profile.meetingUrl)
 ]);
