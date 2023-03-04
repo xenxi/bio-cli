@@ -21,12 +21,27 @@ export abstract class MenuOption {
 export class SendMainOption extends MenuOption {
   constructor(private email: string, args?: MenuOptionArgs) {
     super({
-      completionText: args?.completionText ?? "I'll do my utmost to reach out to you.",
+      completionText:
+        args?.completionText ?? "I'll do my utmost to reach out to you.",
       label: args?.label ?? "Send me an email.",
     });
   }
   protected execute(): Promise<void> {
     open(`mailto:${this.email}`);
+    return Promise.resolve();
+  }
+}
+export class ScheduleMeetingOption extends MenuOption {
+  constructor(private meetingUrl: string, args?: MenuOptionArgs) {
+    super({
+      completionText:
+        args?.completionText ??
+        "Looking forward to meeting you at the meeting.",
+      label: args?.label ?? "Schedule a Meeting.",
+    });
+  }
+  protected execute(): Promise<void> {
+    open(this.meetingUrl);
     return Promise.resolve();
   }
 }
