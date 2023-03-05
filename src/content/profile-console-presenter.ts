@@ -38,7 +38,7 @@ export class ProfileConsolePresenter {
       name: chalk.bold.green(`              ${profile.name}`),
       work: `${chalk.white(`${profile.profession} at`)} ${chalk
         .hex("#2b82b2")
-        .bold("AIDA")}`,
+        .bold(profile.profession)}`,
       github:
         chalk.gray("https://github.com/") + chalk.green(profile.githubName),
       linkedin:
