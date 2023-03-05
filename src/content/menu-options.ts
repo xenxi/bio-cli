@@ -57,6 +57,24 @@ class ExitOption extends MenuOption {
     return Promise.resolve();
   }
 }
+class CustomOption extends MenuOption {
+  private action: () => void;
+  constructor(args: {
+    label: string;
+    completionText: string;
+    action: () => void;
+  }) {
+    super({
+      completionText: args.completionText,
+      label: args.label,
+    });
+    this.action = args.action;
+  }
+  protected execute(): Promise<void> {
+    this.action();
+    return Promise.resolve();
+  }
+}
 
 class MenuOptions extends Array<MenuOption> {
   constructor(public title: string, ...options: MenuOption[]) {
@@ -78,6 +96,14 @@ class MenuOptions extends Array<MenuOption> {
     options?: MenuOptionArgs;
   }): MenuOptions {
     this.push(new ScheduleMeetingOption(args.meetingUrl, args.options));
+    return this;
+  }
+  public withCustom(args: {
+    label: string;
+    completionText: string;
+    action: () => void;
+  }): MenuOptions {
+    this.push(new CustomOption(args));
     return this;
   }
 

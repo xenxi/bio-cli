@@ -18,6 +18,13 @@ const profile: DeveloperProfile = {
 
 const options = new MenuOptions("What would you like to do?")
   .withSendMail({ email: profile.email })
-  .withScheduleMeeting({ meetingUrl: profile.meetingUrl });
+  .withScheduleMeeting({ meetingUrl: profile.meetingUrl })
+  .withCustom({
+    action: () => {
+      console.log("do custom action");
+    },
+    completionText: "custom action done",
+    label: "custom action",
+  });
 
 printCard(profile, options);
