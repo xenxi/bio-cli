@@ -13,12 +13,10 @@ const profile: DeveloperProfile = {
   email: "antoniom.diaz.moreno@gmail.com",
   meetingUrl: "https://calendly.com/antoniom-diaz-moreno/30min",
   description:
-    "I would like to become proficient in software development and ensure that I'm doing it right",
+    "I am a passionate, creative, solution-oriented programmer with skills in multiple languages and technologies",
 };
 
-const options = new MenuOptions(
-  "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ "
-)
+const options = new MenuOptions("What would you like to do?")
   .withSendMail({ email: profile.email })
   .withScheduleMeeting({ meetingUrl: profile.meetingUrl });
 
