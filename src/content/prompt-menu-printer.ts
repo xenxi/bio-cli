@@ -1,14 +1,13 @@
 import inquirer, { PromptModule, QuestionCollection } from "inquirer";
 import { MenuOptions } from "./menu-options.js";
-import { ExitOption } from "./menu-options.js";
 
 export class PromptMenuPrinter {
   private readonly prompt: PromptModule;
   constructor(private options: MenuOptions) {
     this.prompt = inquirer.createPromptModule();
 
-    if (!options.some((o) => o instanceof ExitOption)) {
-      options.push(new ExitOption());
+    if (!options.hasExitOption()) {
+      options.withExit();
     }
   }
   public async show(): Promise<void> {
@@ -26,7 +25,7 @@ export class PromptMenuPrinter {
       {
         type: "list",
         name: "execute",
-        message:this.options.title,
+        message: this.options.title,
         choices: commands,
       },
     ];

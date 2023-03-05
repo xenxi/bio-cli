@@ -1,8 +1,8 @@
-export type MenuOptionArgs = {
+type MenuOptionArgs = {
   label?: string;
   completionText?: string;
 };
-export abstract class MenuOption {
+abstract class MenuOption {
   public label: string;
   protected completionText: string;
 
@@ -18,7 +18,7 @@ export abstract class MenuOption {
   }
 }
 
-export class SendMainOption extends MenuOption {
+class SendMainOption extends MenuOption {
   constructor(private email: string, args?: MenuOptionArgs) {
     super({
       completionText:
@@ -31,7 +31,7 @@ export class SendMainOption extends MenuOption {
     return Promise.resolve();
   }
 }
-export class ScheduleMeetingOption extends MenuOption {
+class ScheduleMeetingOption extends MenuOption {
   constructor(private meetingUrl: string, args?: MenuOptionArgs) {
     super({
       completionText:
@@ -45,7 +45,7 @@ export class ScheduleMeetingOption extends MenuOption {
     return Promise.resolve();
   }
 }
-export class ExitOption extends MenuOption {
+class ExitOption extends MenuOption {
   constructor(args?: MenuOptionArgs) {
     super({
       completionText:
@@ -57,7 +57,8 @@ export class ExitOption extends MenuOption {
     return Promise.resolve();
   }
 }
-export class MenuOptions extends Array<MenuOption> {
+
+class MenuOptions extends Array<MenuOption> {
   constructor(public title: string, ...options: MenuOption[]) {
     super(...options);
   }
@@ -79,4 +80,10 @@ export class MenuOptions extends Array<MenuOption> {
     this.push(new ScheduleMeetingOption(args.meetingUrl, args.options));
     return this;
   }
+
+  public hasExitOption(): boolean {
+    return this.some((o) => o instanceof ExitOption);
+  }
 }
+
+export { MenuOptions, MenuOptionArgs };
