@@ -61,4 +61,22 @@ export class MenuOptions extends Array<MenuOption> {
   constructor(public title: string, ...options: MenuOption[]) {
     super(...options);
   }
+  public withExit(args?: MenuOptionArgs): MenuOptions {
+    this.push(new ExitOption(args));
+    return this;
+  }
+  public withSendMail(args: {
+    email: string;
+    options?: MenuOptionArgs;
+  }): MenuOptions {
+    this.push(new SendMainOption(args.email, args.options));
+    return this;
+  }
+  public withScheduleMeeting(args: {
+    meetingUrl: string;
+    options?: MenuOptionArgs;
+  }): MenuOptions {
+    this.push(new ScheduleMeetingOption(args.meetingUrl, args.options));
+    return this;
+  }
 }

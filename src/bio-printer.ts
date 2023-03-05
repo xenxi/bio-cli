@@ -1,10 +1,6 @@
 import { CardPrinter } from "./content/card-printer.js";
 import { DeveloperProfile } from "./content/developer-profile.js";
-import {
-  MenuOptions,
-  SendMainOption,
-  ScheduleMeetingOption,
-} from "./content/menu-options.js";
+import { MenuOptions } from "./content/menu-options.js";
 import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
 export async function print(
@@ -30,10 +26,11 @@ const profile: DeveloperProfile = {
   description:
     "I would like to become proficient in software development and ensure that I'm doing it right",
 };
+
 const options = new MenuOptions(
-  "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ ",
-  new SendMainOption(profile.email),
-  new ScheduleMeetingOption(profile.meetingUrl)
-);
+  "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ "
+)
+  .withSendMail({ email: profile.email })
+  .withScheduleMeeting({ meetingUrl: profile.meetingUrl });
 
 print(profile, options);
