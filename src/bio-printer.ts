@@ -3,7 +3,7 @@ import { DeveloperProfile } from "./content/developer-profile.js";
 import { MenuOptions } from "./content/menu-options.js";
 import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
-export async function printCard(
+async function printCard(
   profile: DeveloperProfile,
   menuOptions?: MenuOptions
 ): Promise<void> {
@@ -13,3 +13,4 @@ export async function printCard(
     await menu.show();
   }
 }
+export { printCard, DeveloperProfile };
