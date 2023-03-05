@@ -27,4 +27,7 @@ const options = new MenuOptions("What would you like to do?")
     label: "custom action",
   });
 
-printCard(profile, options);
+printCard(profile, {
+  menuOptions: options,
+  cardTitle: 'xenxi'
+});

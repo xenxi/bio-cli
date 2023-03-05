@@ -5,9 +5,14 @@ import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
 async function printCard(
   profile: DeveloperProfile,
-  menuOptions?: MenuOptions
+  options: {
+    menuOptions?: MenuOptions;
+    cardTitle?: string;
+  } = {}
 ): Promise<void> {
-  new CardPrinter(profile).print("👋 Hello world");
+  const { menuOptions, cardTitle } = options;
+
+  new CardPrinter(profile).print(cardTitle ?? "");
   if (menuOptions) {
     const menu = new PromptMenuPrinter(menuOptions);
     await menu.show();
