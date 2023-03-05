@@ -17,6 +17,7 @@ const profile: DeveloperProfile = {
   consoleCommand: "amdiaz",
   email: "antoniom.diaz.moreno@gmail.com",
   meetingUrl: "https://calendly.com/antoniom-diaz-moreno/30min",
+  description: "I would like to become proficient in software development and ensure that I'm doing it right",
 };
 
 print(profile, [

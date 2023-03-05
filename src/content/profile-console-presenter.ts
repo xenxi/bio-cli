@@ -65,9 +65,7 @@ export class ProfileConsolePresenter {
       `${profileFormated.labelLinkedIn}  ${profileFormated.linkedin}`,
       `${profileFormated.labelWeb}  ${profileFormated.web}\n`,
       `${profileFormated.labelCard}  ${profileFormated.npx}\n`,
-      `${chalk.italic(
-        "I would like to become proficient in software development and ensure that I'm doing it right"
-      )}`,
+      `${chalk.italic(profile.description)}`,
     ].join("\n");
   }
 }
