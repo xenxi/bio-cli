@@ -1,11 +1,21 @@
 import { CardPrinter } from "./content/card-printer.js";
 import { DeveloperProfile } from "./content/developer-profile.js";
-import { MenuOption, SendMainOption, ScheduleMeetingOption } from "./content/menu-options.js";
+import {
+  MenuOptions,
+  SendMainOption,
+  ScheduleMeetingOption,
+} from "./content/menu-options.js";
 import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
-export function print(profile: DeveloperProfile, menuOptions: MenuOption[] = []): Promise<void> {
+export async function print(
+  profile: DeveloperProfile,
+  menuOptions?: MenuOptions
+): Promise<void> {
   new CardPrinter(profile).print("👋 Hello world");
-  return new PromptMenuPrinter(menuOptions).show();
+  if (menuOptions) {
+    const menu = new PromptMenuPrinter(menuOptions);
+    await menu.show();
+  }
 }
 const profile: DeveloperProfile = {
   name: "Antonio Manuel Díaz Moreno",
@@ -17,10 +27,13 @@ const profile: DeveloperProfile = {
   consoleCommand: "amdiaz",
   email: "antoniom.diaz.moreno@gmail.com",
   meetingUrl: "https://calendly.com/antoniom-diaz-moreno/30min",
-  description: "I would like to become proficient in software development and ensure that I'm doing it right",
+  description:
+    "I would like to become proficient in software development and ensure that I'm doing it right",
 };
-
-print(profile, [
-  new SendMainOption( profile.email),
+const options = new MenuOptions(
+  "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ ",
+  new SendMainOption(profile.email),
   new ScheduleMeetingOption(profile.meetingUrl)
-]);
+);
+
+print(profile, options);

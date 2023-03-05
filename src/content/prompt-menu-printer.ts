@@ -1,10 +1,10 @@
 import inquirer, { PromptModule, QuestionCollection } from "inquirer";
-import { MenuOption } from "./menu-options.js";
+import { MenuOptions } from "./menu-options.js";
 import { ExitOption } from "./menu-options.js";
 
 export class PromptMenuPrinter {
   private readonly prompt: PromptModule;
-  constructor(private options: MenuOption[]) {
+  constructor(private options: MenuOptions) {
     this.prompt = inquirer.createPromptModule();
 
     if (!options.some((o) => o instanceof ExitOption)) {
@@ -26,8 +26,7 @@ export class PromptMenuPrinter {
       {
         type: "list",
         name: "execute",
-        message:
-          "What's your code adventure, adventurer? Choose your destiny! 🧙‍♂️ ",
+        message:this.options.title,
         choices: commands,
       },
     ];

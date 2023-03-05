@@ -46,11 +46,10 @@ export class ScheduleMeetingOption extends MenuOption {
   }
 }
 export class ExitOption extends MenuOption {
-  constructor( args?: MenuOptionArgs) {
+  constructor(args?: MenuOptionArgs) {
     super({
       completionText:
-        args?.completionText ??
-        "Looking forward to seeing you again.",
+        args?.completionText ?? "Looking forward to seeing you again.",
       label: args?.label ?? "Exit...",
     });
   }
@@ -59,5 +58,7 @@ export class ExitOption extends MenuOption {
   }
 }
 export class MenuOptions extends Array<MenuOption> {
-
+  constructor(public title: string, ...options: MenuOption[]) {
+    super(...options);
+  }
 }
