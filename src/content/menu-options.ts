@@ -58,3 +58,6 @@ export class ExitOption extends MenuOption {
     return Promise.resolve();
   }
 }
+export class MenuOptions extends Array<MenuOption> {
+
+}
