@@ -1,6 +1,6 @@
+import { printCard } from "./bio-printer.js";
 import { DeveloperProfile } from "./content/developer-profile.js";
 import { MenuOptions } from "./content/menu-options.js";
-import { print } from "./bio-printer.js";
 
 const profile: DeveloperProfile = {
   name: "Antonio Manuel Díaz Moreno",
@@ -20,4 +20,4 @@ const options = new MenuOptions("What would you like to do?")
   .withSendMail({ email: profile.email })
   .withScheduleMeeting({ meetingUrl: profile.meetingUrl });
 
-print(profile, options);
+printCard(profile, options);
