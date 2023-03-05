@@ -21,8 +21,11 @@
     "url": "git+https://github.com/xenxi/bio-cli.git"
   },
   "keywords": [
-    "amdiaz",
+    "npm card",
+    "npx card",
+    "card",
     "resume",
+    "business card",
     "about"
   ],
   "author": "amdiaz (https://antoniomdm.dev/)",
