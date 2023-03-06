@@ -112,4 +112,4 @@ class MenuOptions extends Array<MenuOption> {
   }
 }
 
-export { MenuOptions, MenuOptionArgs };
+export { MenuOptions, type MenuOptionArgs };
