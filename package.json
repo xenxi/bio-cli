@@ -4,6 +4,7 @@
   "description": "The bio-cli package is a command line interface tool that displays a brief summary of a developer",
   "exports": "./dist/bio-printer.js",
   "type": "module",
+  "types": "./dist/bio-printer.d.ts",
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
