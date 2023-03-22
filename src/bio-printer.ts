@@ -1,6 +1,6 @@
 import { CardPrinter } from "./content/card-printer.js";
 import { DeveloperProfile } from "./content/developer-profile.js";
-import { MenuOptions } from "./content/menu-options.js";
+import { MenuOptionArgs, MenuOptions } from "./content/menu-options.js";
 import { PromptMenuPrinter } from "./content/prompt-menu-printer.js";
 
 async function printCard(
@@ -18,4 +18,4 @@ async function printCard(
     await menu.show();
   }
 }
-export { printCard, type DeveloperProfile, type MenuOptions };
+export { printCard, type DeveloperProfile, type MenuOptions, type MenuOptionArgs };
