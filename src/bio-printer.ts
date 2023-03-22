@@ -18,4 +18,4 @@ async function printCard(
     await menu.show();
   }
 }
-export { printCard, type DeveloperProfile, type MenuOptions, type MenuOptionArgs };
+export { printCard, type DeveloperProfile, MenuOptions, type MenuOptionArgs };
