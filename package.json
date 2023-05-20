@@ -1,6 +1,6 @@
 {
   "name": "bio-dev-card",
-  "version": "1.1.5-beta.0",
+  "version": "2.0.0",
   "description": "The bio-cli package is a command line interface tool that displays a brief summary of a developer",
   "main": "dist/bio-printer.js",
   "module": "dist/bio-printer.js",
