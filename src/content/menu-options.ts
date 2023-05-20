@@ -20,6 +20,7 @@ abstract class MenuOption {
     await this.execute();
     console.log("\n");
     console.log(this.completionText);
+    console.log("\n");
   }
 }
 
