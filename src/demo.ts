@@ -19,6 +19,36 @@ const profile: DeveloperProfile = {
 const options = new MenuOptions("What would you like to do?")
   .withSendMail({ email: profile.email })
   .withScheduleMeeting({ meetingUrl: profile.meetingUrl })
+  .withExperiencesPrinter({
+    completionText: 'If you have any questions or need more information, feel free to ask',
+    label: 'Take a look at my professional experiences.',
+    experiences: [
+      {
+        company: "ABC Company",
+        position: "Software Developer",
+        startDate: "2020-01-01",
+        endDate: "2022-12-31",
+        responsibilities: ["Developed new features", "Collaborated with the team", "Performed code reviews"],
+        technologies: ["JavaScript", "React", "Node.js"]
+      },
+      {
+        company: "XYZ Corporation",
+        position: "Project Manager",
+        startDate: "2018-06-01",
+        endDate: "2020-12-31",
+        responsibilities: ["Managed project timelines", "Coordinated resources", "Communicated with stakeholders"],
+        technologies: []
+      },
+      {
+        company: "123 Industries",
+        position: "Data Analyst",
+        startDate: "2019-03-15",
+        endDate: "2021-08-31",
+        responsibilities: ["Analyzed data trends", "Created reports", "Performed data cleansing"],
+        technologies: ["SQL", "Python", "Tableau"]
+      }
+    ]
+  })
   .withCustom({
     action: () => {
       console.log("do custom action");

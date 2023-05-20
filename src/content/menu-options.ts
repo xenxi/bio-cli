@@ -1,3 +1,6 @@
+import { Experience } from "./experience";
+import chalk from "chalk";
+
 type MenuOptionArgs = {
   label?: string;
   completionText?: string;
@@ -14,6 +17,7 @@ abstract class MenuOption {
 
   public async onSelected(): Promise<void> {
     await this.execute();
+    console.log("\n");
     console.log(this.completionText);
   }
 }
@@ -54,6 +58,43 @@ class ExitOption extends MenuOption {
     });
   }
   protected execute(): Promise<void> {
+    return Promise.resolve();
+  }
+}
+class ExperiencesPrinterOption extends MenuOption {
+  private readonly experiences: Array<Experience>;
+  constructor(args: {
+    label: string;
+    completionText: string;
+    experiences: Array<Experience>;
+  }) {
+    super({
+      completionText: args.completionText,
+      label: args.label,
+    });
+    this.experiences = args.experiences;
+  }
+  protected execute(): Promise<void> {
+    this.experiences.forEach((experience) => {
+      console.log("\n");
+      console.log(
+        chalk.bold.cyan(experience.company) +
+          " - " +
+          chalk.italic.cyan(experience.position)
+      );
+      console.log(
+        chalk.italic(experience.startDate + " - " + experience.endDate)
+      );
+      experience.responsibilities.forEach((responsibility) => {
+        console.log("   - " + responsibility);
+      });
+      if (experience.technologies.length > 0) {
+        console.log(
+          chalk.bold("Technologies and Methodologies: ") +
+            experience.technologies.map((x) => chalk.green(x)).join(", ")
+        );
+      }
+    });
     return Promise.resolve();
   }
 }
@@ -104,6 +145,14 @@ class MenuOptions extends Array<MenuOption> {
     action: () => void;
   }): MenuOptions {
     this.push(new CustomOption(args));
+    return this;
+  }
+  public withExperiencesPrinter(args: {
+    label: string;
+    completionText: string;
+    experiences: Array<Experience>;
+  }): MenuOptions {
+    this.push(new ExperiencesPrinterOption(args));
     return this;
   }
 
