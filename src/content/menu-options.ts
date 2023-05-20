@@ -1,5 +1,6 @@
 import { Experience } from "./experience";
 import chalk from "chalk";
+import open from 'open';
 
 type MenuOptionArgs = {
   label?: string;
